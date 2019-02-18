@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+      "allowSyntheticDefaultImports": false,
+      "esModuleInterop": false,
+      "strictNullChecks": true,
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "noUnusedParameters": true,
+      "noUnusedLocals": true,
+      "noImplicitAny": true,
+			"target": "es2016",
+			"module": "es2015",
+      "lib": [
+				"es2016"
+      ]
+    },
+    "exclude": [
+      "node_modules"
+    ]
+}

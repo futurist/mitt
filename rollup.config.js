@@ -1,20 +1,20 @@
 import buble from 'rollup-plugin-buble';
-import flow from 'rollup-plugin-flow';
-import fs from 'fs';
+// import flow from 'rollup-plugin-flow';
+// import fs from 'fs';
 
-const pkg = JSON.parse(fs.readFileSync('./package.json'));
+// const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 export default {
 	entry: 'src/index.js',
 	useStrict: false,
 	sourceMap: true,
 	plugins: [
-		flow(),
+		// flow(),
 		buble()
 	],
 	targets: [
-		{ dest: pkg.main, format: 'cjs' },
-		{ dest: pkg.module, format: 'es' },
-		{ dest: pkg['umd:main'], format: 'umd', moduleName: pkg.name }
+		{ dest: 'dist/cjs.js', format: 'cjs' },
+		{ dest: 'dist/es.js', format: 'es' },
+		{ dest: 'dist/umd.js', format: 'umd', moduleName: 'esMitt' }
 	]
 };

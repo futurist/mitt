@@ -13,7 +13,7 @@ describe('mitt#', () => {
 
 	beforeEach( () => {
 		events = Object.create(null);
-		inst = mitt(events);
+		inst = new mitt(events);
 	});
 
 	describe('on()', () => {
