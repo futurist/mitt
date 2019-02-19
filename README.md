@@ -13,4 +13,4 @@ npm i -S es-mitt
 ### Different from mitt
 
 - use `typescript` instead of `flow`, as `src/index.ts`
-- provide `class` exports in `src/index.js` as node module
+- only provide `class` exports in `src/index.js` as node module

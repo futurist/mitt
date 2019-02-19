@@ -8,7 +8,8 @@
     "testonly": "mocha --require reify/node --require flow-remove-types/register test/**/*.js",
     "lint": "eslint src test",
     "test": "tsc && npm run testonly",
-    "build": "npm test && npm-run-all --silent clean -p rollup",
+    "build": "tsc",
+    "version": "npm run build",
     "clean": "rimraf dist",
     "rollup": "rollup -c"
   },

@@ -1,8 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /** Mitt: Tiny (~200b) functional event emitter / pubsub.
  *  @name mitt
  *  @returns {Mitt}
  */
-export default class mitt {
+class mitt {
     constructor(all) {
         this.all = all || Object.create(null);
         this.removeListener = this.off;
@@ -46,3 +48,4 @@ export default class mitt {
         });
     }
 }
+exports.default = mitt;
