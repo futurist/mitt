@@ -10,7 +10,7 @@ Fork of https://github.com/developit/mitt, but using the npm name: `es-mitt`
 npm i -S es-mitt
 ```
 
-### Different
+### Different from mitt
 
-- use `typescript` instead of `flow`
-- provide `class` exports in `dist/node.js` build
+- use `typescript` instead of `flow`, as `src/index.ts`
+- provide `class` exports in `src/index.js` as node module
