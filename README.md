@@ -13,4 +13,6 @@ npm i -S es-mitt
 ### Different from mitt
 
 - use `typescript` instead of `flow`, as `src/index.ts`
-- only provide `class` exports in `src/index.js` as node module
+- `main` file point to `src/index.js` as node module
+- using `class` and keep other `es2015` features
+- add `removeListener` method to keep consistency with [EventEmitter](https://nodejs.org/api/events.html)
