@@ -1,7 +1,9 @@
-import mitt from '../src';
-import chai, { expect } from 'chai';
-import { spy } from 'sinon';
-import sinonChai from 'sinon-chai';
+const mitt = require('../src').default;
+const chai = require('chai');
+const { spy } = require('sinon');
+const sinonChai = require('sinon-chai');
+const {expect} = chai;
+
 chai.use(sinonChai);
 
 it('should default export be a function', () => {

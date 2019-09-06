@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *  @returns {Mitt}
  */
 class mitt {
-    constructor(all) {
-        this.all = all || Object.create(null);
+    constructor(events) {
+        this._events = events || Object.create(null);
         this.removeListener = this.off;
     }
     /**
@@ -17,7 +17,7 @@ class mitt {
      * @memberOf mitt
      */
     on(type, handler) {
-        (this.all[type] || (this.all[type] = [])).push(handler);
+        (this._events[type] || (this._events[type] = [])).push(handler);
     }
     /**
      * Remove an event handler for the given type.
@@ -27,8 +27,8 @@ class mitt {
      * @memberOf mitt
      */
     off(type, handler) {
-        if (this.all[type]) {
-            this.all[type].splice(this.all[type].indexOf(handler) >>> 0, 1);
+        if (this._events[type]) {
+            this._events[type].splice(this._events[type].indexOf(handler) >>> 0, 1);
         }
     }
     /**
@@ -40,10 +40,10 @@ class mitt {
      * @memberOf mitt
      */
     emit(type, evt) {
-        (this.all[type] || []).slice().map((handler) => {
+        (this._events[type] || []).slice().map((handler) => {
             handler(evt);
         });
-        (this.all['*'] || []).slice().map((handler) => {
+        (this._events['*'] || []).slice().map((handler) => {
             handler(type, evt);
         });
     }

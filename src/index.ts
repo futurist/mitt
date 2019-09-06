@@ -1,4 +1,3 @@
-// @flow
 // An event handler can take an optional event argument
 // and should not return a value
 type EventHandler = (event?: any) => void;
@@ -18,11 +17,11 @@ type EventHandlerMap = {
  *  @returns {Mitt}
  */
 export default class mitt {
-	all: any;
+	_events: any;
 	removeListener: (type: string, handler: EventHandler) => void;
 
-	constructor(all: EventHandlerMap) {
-		this.all = all || Object.create(null);
+	constructor(events: EventHandlerMap) {
+		this._events = events || Object.create(null);
 		this.removeListener = this.off;
 	}
 
@@ -34,7 +33,7 @@ export default class mitt {
 	 * @memberOf mitt
 	 */
 	on(type: string, handler: EventHandler) {
-		(this.all[type] || (this.all[type] = [])).push(handler);
+		(this._events[type] || (this._events[type] = [])).push(handler);
 	}
 
 	/**
@@ -45,8 +44,8 @@ export default class mitt {
 	 * @memberOf mitt
 	 */
 	off(type: string, handler: EventHandler) {
-		if (this.all[type]) {
-			this.all[type].splice(this.all[type].indexOf(handler) >>> 0, 1);
+		if (this._events[type]) {
+			this._events[type].splice(this._events[type].indexOf(handler) >>> 0, 1);
 		}
 	}
 
@@ -59,10 +58,10 @@ export default class mitt {
 	 * @memberOf mitt
 	 */
 	emit(type: string, evt: any) {
-		(this.all[type] || []).slice().map((handler: EventHandler) => {
+		(this._events[type] || []).slice().map((handler: EventHandler) => {
 			handler(evt);
 		});
-		(this.all['*'] || []).slice().map((handler: WildCardEventHandler) => {
+		(this._events['*'] || []).slice().map((handler: WildCardEventHandler) => {
 			handler(type, evt);
 		});
 	}

@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "bump": "standard-version",
-    "testonly": "mocha --require reify/node --require flow-remove-types/register test/**/*.js",
+    "testonly": "mocha -r ts-node/register test/**/*.js",
     "lint": "eslint src test",
     "test": "tsc && npm run testonly",
     "build": "tsc",
@@ -62,7 +62,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "documentation": "^4.0.0-beta4",
-    "eslint": "^3.13.1",
     "flow-bin": "^0.38.0",
     "flow-remove-types": "^1.2.0",
     "gzip-size-cli": "^1.0.0",
@@ -78,7 +77,6 @@
     "sinon-chai": "^2.8.0",
     "standard-version": "^4.0.0",
     "strip-json-comments-cli": "^1.0.1",
-    "typescript": "^3.3.3",
     "uglify-js": "^2.6.2"
   }
 }
