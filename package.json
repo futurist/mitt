@@ -13,7 +13,10 @@
     "clean": "rimraf dist",
     "rollup": "rollup -c"
   },
-  "repository": "futurist/mitt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futurist/mitt.git"
+  },
   "keywords": [
     "events",
     "eventemitter",
@@ -90,5 +93,11 @@
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3",
     "uglify-js": "^2.6.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/futurist/mitt/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "es-mitt@1.2.0",
+  "build": 1
 }
