@@ -18,11 +18,9 @@ type EventHandlerMap = {
  */
 export default class mitt {
 	_events: any;
-	removeListener: (type: string, handler: EventHandler) => void;
 
 	constructor(events: EventHandlerMap) {
 		this._events = events || Object.create(null);
-		this.removeListener = this.off;
 	}
 
 	/**
@@ -52,6 +50,8 @@ export default class mitt {
 	/**
 	 * Invoke this.all handlers for the given type.
 	 * If present, `"*"` handlers are invoked after type-matched handlers.
+	 *
+	 * Note: Manually firing "*" handlers is not supported.
 	 *
 	 * @param {String} type  The event type to invoke
 	 * @param {Any} [evt]  Any value (object is recommended and powerful), passed to each handler

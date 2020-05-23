@@ -5,7 +5,7 @@ import buble from 'rollup-plugin-buble';
 // const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 export default {
-	entry: 'src/index.js',
+	entry: 'dist/index.js',
 	useStrict: false,
 	sourceMap: true,
 	plugins: [

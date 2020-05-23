@@ -6,7 +6,7 @@ declare module "mitt" {
 
 declare namespace mitt {
 	type Handler = (event?: any) => void;
-	type WildcardHandler = (type?: string, event?: any) => void;
+	type WildcardHandler = (type: string, event?: any) => void;
 
 	interface MittStatic {
 		(_events?: {[key: string]: Array<Handler>}): Emitter;
@@ -45,5 +45,9 @@ declare namespace mitt {
 		 * @memberOf Mitt
 		 */
 		emit(type: string, event?: any): void;
+		/**
+		 * Note: Manually firing "*" events is unsupported.
+		 */
+		emit(type: "*", event?: any): void;
 	}
 }
